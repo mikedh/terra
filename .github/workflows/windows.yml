@@ -19,7 +19,7 @@ jobs:
             llvm: '5.0'
     steps:
       - uses: actions/checkout@v1
-      - run: windows.bat
+      - run: ./windows.bat
         env:
           LLVM_CONFIG: llvm-config-${{ matrix.llvm }}
           LLVM_VERSION: ${{ matrix.llvm }}
