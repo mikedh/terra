@@ -1,7 +1,7 @@
 
-curl -OL "https://github.com/%BINARY_SOURCE_USER%/llvm-package-windows/releases/download/clang-%LLVM_VERSION%-nvptx/llvm-%LLVM_VERSION%-windows-amd64-msvc%VS_MAJOR_VERSION%-msvcrt.7z"
+curl -L -o llvm.z7 "https://github.com/%BINARY_SOURCE_USER%/llvm-package-windows/releases/download/clang-%LLVM_VERSION%-nvptx/llvm-%LLVM_VERSION%-windows-amd64-msvc%VS_MAJOR_VERSION%-msvcrt.7z"
 
-7z x llvm-%LLVM_VERSION%-windows-amd64-msvc%VS_MAJOR_VERSION%-msvcrt.7z
+7z x llvm.7z
 
 set LLVM_DIR=%CD%\llvm-%LLVM_VERSION%-windows-amd64-msvc%VS_MAJOR_VERSION%-msvcrt
 set CLANG_RESOURCE_DIRECTORY=%LLVM_DIR%\lib\clang\%LLVM_VERSION%
