@@ -15,8 +15,6 @@ if /I "%USE_CUDA%" EQU "1" (set CUDA_DIR=C:\Program Files\NVIDIA GPU Computing T
 
 set TERRA_DIR=%CD%
 
-git describe --tags | ForEach-Object { $_ -replace "release-", "" } | Set-Content terra_version.txt
-set /p TERRA_VERSION=<terra_version.txt
 
 cd build
 cmake .. -DCMAKE_INSTALL_PREFIX=%CD%\..\install -DCMAKE_GENERATOR_PLATFORM=x64
