@@ -14,7 +14,7 @@ dir
 
 dir
 
-set LLVM_DIR=%CD%\llvm-%LLVM_VERSION%-windows-amd64-msvc%VS_MAJOR_VERSION%-msvcrt
+set LLVM_DIR=%CD%\llvm-13.0.0-windows-x86-msvc15-msvcrt
 set CLANG_RESOURCE_DIRECTORY=%LLVM_DIR%\lib\clang\%LLVM_VERSION%
 
 set CMAKE_PREFIX_PATH=%LLVM_DIR%
