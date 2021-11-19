@@ -8,6 +8,8 @@ SET LL13="https://github.com/vovkos/llvm-package-windows/releases/download/llvm-
 
 curl -L -o llvm.z7 %LL13%
 
+dir
+
 7z x llvm.7z
 
 set LLVM_DIR=%CD%\llvm-%LLVM_VERSION%-windows-amd64-msvc%VS_MAJOR_VERSION%-msvcrt
