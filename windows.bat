@@ -1,5 +1,6 @@
 
 curl -L -o llvm.z7 "https://github.com/%BINARY_SOURCE_USER%/llvm-package-windows/releases/download/clang-%LLVM_VERSION%-nvptx/llvm-%LLVM_VERSION%-windows-amd64-msvc%VS_MAJOR_VERSION%-msvcrt.7z"
+:: https://github.com/vovkos/llvm-package-windows/releases/download/llvm-master/llvm-13.0.0-windows-x86-msvc15-msvcrt.7z
 
 7z x llvm.7z
 
