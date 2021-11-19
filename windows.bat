@@ -6,11 +6,11 @@
 SET LL11="https://github.com/vovkos/llvm-package-windows/releases/download/clang-11.1.0/clang-11.1.0-windows-x86-msvc15-msvcrt.7z"
 SET LL13="https://github.com/vovkos/llvm-package-windows/releases/download/llvm-master/llvm-13.0.0-windows-x86-msvc15-msvcrt.7z"
 
-curl -L -o llvm.z7 %LL13%
+curl -L -o llvm.7z %LL13%
 
 dir
 
-7z x llvm.z7
+7z x llvm.7z
 
 set LLVM_DIR=%CD%\llvm-%LLVM_VERSION%-windows-amd64-msvc%VS_MAJOR_VERSION%-msvcrt
 set CLANG_RESOURCE_DIRECTORY=%LLVM_DIR%\lib\clang\%LLVM_VERSION%
