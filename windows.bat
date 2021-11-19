@@ -10,7 +10,7 @@ curl -L -o llvm.z7 %LL13%
 
 dir
 
-7z x llvm.7z
+7z x llvm.z7
 
 set LLVM_DIR=%CD%\llvm-%LLVM_VERSION%-windows-amd64-msvc%VS_MAJOR_VERSION%-msvcrt
 set CLANG_RESOURCE_DIRECTORY=%LLVM_DIR%\lib\clang\%LLVM_VERSION%
