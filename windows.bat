@@ -17,6 +17,10 @@ dir
 set LLVM_DIR=%CD%\llvm-13.0.0-windows-x86-msvc15-msvcrt
 set CLANG_RESOURCE_DIRECTORY=%LLVM_DIR%\lib\clang\%LLVM_VERSION%
 
+dir %LLVM_DIR%
+dir %LLVM_DIR%\lib\clang
+
+
 set CMAKE_PREFIX_PATH=%LLVM_DIR%
 
 :: TODO : re-enable cude if
