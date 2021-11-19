@@ -23,7 +23,8 @@ jobs:
         env:
           LLVM_CONFIG: llvm-config-${{ matrix.llvm }}
           LLVM_VERSION: ${{ matrix.llvm }}
-          VS_MAJOR_VERSION: 19
+          VS_MAJOR_VERSION: 15
+          BINARY_SOURCE_USER: vovkos
           CLANG: clang-${{ matrix.llvm }}
           USE_CMAKE: ${{ matrix.cmake }}
           USE_CUDA: ${{ matrix.cuda }}
