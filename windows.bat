@@ -8,18 +8,23 @@ SET LL13="https://github.com/vovkos/llvm-package-windows/releases/download/llvm-
 
 curl -L -o llvm.7z %LL13%
 
+curl -L -o clang.7z "https://github.com/vovkos/llvm-package-windows/releases/download/clang-master/clang-13.0.0-windows-x86-msvc15-msvcrt.7z"
+
+
 dir
 
 7z x llvm.7z
-
+7z x clang.7z
 dir
 
+
 set LLVM_DIR=%CD%\llvm-13.0.0-windows-x86-msvc15-msvcrt
-set CLANG_RESOURCE_DIRECTORY=%LLVM_DIR%\lib\clang\%LLVM_VERSION%
+set CLANG_DIR=%CD%\clang-13.0.0-windows-x86-msvc15-msvcrt
+
+set CLANG_RESOURCE_DIRECTORY=%CLANG_DIR%\lib\clang\13.0.0
 
 dir %LLVM_DIR%
-dir %LLVM_DIR%\lib\clang
-
+dir %CLANG_RESOURCE_DIRECTORY
 
 set CMAKE_PREFIX_PATH=%LLVM_DIR%
 
