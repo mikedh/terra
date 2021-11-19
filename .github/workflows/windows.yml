@@ -8,7 +8,7 @@ jobs:
     strategy:
       matrix:
         os: ['windows-latest']
-        llvm: ['11', '13']
+        llvm: ['13']
         cmake: ['1']    
         cuda: ['0', '1']
         static: ['0', '1']
