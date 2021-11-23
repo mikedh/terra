@@ -22,8 +22,8 @@ jobs:
             llvm: '13'
     steps:
       - uses: actions/checkout@v2
-      - if: ${{ matrix.os == 'windows-latest' }}
-      - run: ./windows.bat
+        if: ${{ matrix.os == 'windows-latest' }}
+        run: ./windows.bat
         env:
           LLVM_CONFIG: llvm-config-${{ matrix.llvm }}
           LLVM_VERSION: ${{ matrix.llvm }}
@@ -38,8 +38,8 @@ jobs:
           SLIB_INCLUDE_LUAJIT: ${{ matrix.slib }}
           TERRA_LUA: ${{ matrix.lua }}
       - uses: actions/checkout@v2
-      - if: ${{ matrix.os != 'windows-latest' }}
-      - run: bash travis.sh
+        if: ${{ matrix.os != 'windows-latest' }}
+        run: bash travis.sh
         env:
           LLVM_CONFIG: llvm-config-${{ matrix.llvm }}
           LLVM_VERSION: ${{ matrix.llvm }}
