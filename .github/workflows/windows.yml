@@ -17,9 +17,29 @@ jobs:
         exclude:
           - os: 'macos-10.15'
             llvm: '5.0'
+        include
+          - os: 'windows-latest'
+            llvm: '13'
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+      - if: ${{ matrix.os == 'windows-latest' }}
       - run: ./windows.bat
+        env:
+          LLVM_CONFIG: llvm-config-${{ matrix.llvm }}
+          LLVM_VERSION: ${{ matrix.llvm }}
+          VS_MAJOR_VERSION: 16
+          BINARY_SOURCE_USER: vovkos
+          CLANG: clang-${{ matrix.llvm }}
+          USE_CMAKE: ${{ matrix.cmake }}
+          USE_CUDA: ${{ matrix.cuda }}
+          STATIC_LLVM: ${{ matrix.static }}
+          STATIC_LUAJIT: ${{ matrix.static }}
+          SLIB_INCLUDE_LLVM: ${{ matrix.slib }}
+          SLIB_INCLUDE_LUAJIT: ${{ matrix.slib }}
+          TERRA_LUA: ${{ matrix.lua }}
+      - uses: actions/checkout@v2
+      - if: ${{ matrix.os != 'windows-latest' }}
+      - run: bash travis.sh
         env:
           LLVM_CONFIG: llvm-config-${{ matrix.llvm }}
           LLVM_VERSION: ${{ matrix.llvm }}
