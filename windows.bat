@@ -1,5 +1,6 @@
 
 :: LLVM_PATH will be set externally by github actions
+set LLVM_PATH-"C:\Program Files\LLVM"
 set CLANG_RESOURCE_DIRECTORY=%LLVM_PATH%\lib\clang\13.0.0
 
 dir %LLVM_PATH%
