@@ -14,15 +14,17 @@ jobs:
         static: ['1']
         slib: ['1']
     steps:
+      - name: Install LLVM and Clang
+        uses: KyleMayes/install-llvm-action@v1
+        with:
+          version: {{ matrix.llvm }}
+          directory: ${{ runner.temp }}/llvm
       - uses: actions/checkout@v2
       - if: ${{ matrix.os == 'windows-latest' }}
         run: ./windows.bat
         env:
-          LLVM_CONFIG: llvm-config-${{ matrix.llvm }}
           LLVM_VERSION: ${{ matrix.llvm }}
           VS_MAJOR_VERSION: 16
-          BINARY_SOURCE_USER: vovkos
-          CLANG: clang-${{ matrix.llvm }}
           USE_CMAKE: ${{ matrix.cmake }}
           USE_CUDA: ${{ matrix.cuda }}
           STATIC_LLVM: ${{ matrix.static }}

@@ -1,12 +1,13 @@
 
-:: LLVM_PATH will be set externally by github actions
-set LLVM_PATH-"C:\Program Files\LLVM"
-set CLANG_RESOURCE_DIRECTORY=%LLVM_PATH%\lib\clang\13.0.0
+:: LLVM_DIR will be set externally by github actions
+set LLVM_DIR=%LLVM_PATH%
+:: set CLANG_RESOURCE_DIRECTORY=%LLVM_DIR%\lib\clang\13.0.0
 
-dir %LLVM_PATH%
-dir %CLANG_RESOURCE_DIRECTORY
 
-set CMAKE_PREFIX_PATH=%LLVM_PATH%
+dir %LLVM_DIR%
+:: dir %CLANG_RESOURCE_DIRECTORY
+
+set CMAKE_PREFIX_PATH=%LLVM_DIR%
 
 :: TODO : re-enable cude if
 if /I "%USE_CUDA%" EQU "1" (curl -L -o cuda.exe "https://developer.nvidia.com/compute/cuda/9.2/Prod2/local_installers2/cuda_9.2.148_windows")
