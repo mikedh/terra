@@ -15,6 +15,9 @@ jobs:
         slib: ['1']
     steps:
       - uses: actions/checkout@v2
+      - uses: KyleMayes/install-llvm-action@v1
+        with:
+          version: "13.0"
       - if: ${{ matrix.os == 'windows-latest' }}
         run: ./windows.bat
         env:

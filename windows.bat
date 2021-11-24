@@ -1,32 +1,11 @@
 
-:: curl -L -o llvm.z7 "https://github.com/%BINARY_SOURCE_USER%/llvm-package-windows/releases/download/clang-%LLVM_VERSION%-nvptx/llvm-%LLVM_VERSION%-windows-amd64-msvc%VS_MAJOR_VERSION%-msvcrt.7z"
+:: LLVM_PATH will be set externally by github actions
+set CLANG_RESOURCE_DIRECTORY=%LLVM_PATH%\lib\clang\13.0.0
 
-:: https://github.com/vovkos/llvm-package-windows/releases/download/llvm-master/llvm-13.0.0-windows-x86-msvc15-msvcrt.7z
-
-SET LL11="https://github.com/vovkos/llvm-package-windows/releases/download/clang-11.1.0/clang-11.1.0-windows-x86-msvc15-msvcrt.7z"
-SET LL13="https://github.com/vovkos/llvm-package-windows/releases/download/llvm-master/llvm-13.0.0-windows-x86-msvc15-msvcrt.7z"
-
-curl -L -o llvm.7z %LL13%
-
-curl -L -o clang.7z "https://github.com/vovkos/llvm-package-windows/releases/download/clang-master/clang-13.0.0-windows-x86-msvc15-msvcrt.7z"
-
-
-dir
-
-7z x llvm.7z
-7z x clang.7z
-dir
-
-
-set LLVM_DIR=%CD%\llvm-13.0.0-windows-x86-msvc15-msvcrt
-set CLANG_DIR=%CD%\clang-13.0.0-windows-x86-msvc15-msvcrt
-
-set CLANG_RESOURCE_DIRECTORY=%CLANG_DIR%\lib\clang\13.0.0
-
-dir %LLVM_DIR%
+dir %LLVM_PATH%
 dir %CLANG_RESOURCE_DIRECTORY
 
-set CMAKE_PREFIX_PATH=%LLVM_DIR%
+set CMAKE_PREFIX_PATH=%LLVM_PATH%
 
 :: TODO : re-enable cude if
 if /I "%USE_CUDA%" EQU "1" (curl -L -o cuda.exe "https://developer.nvidia.com/compute/cuda/9.2/Prod2/local_installers2/cuda_9.2.148_windows")
