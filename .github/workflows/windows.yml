@@ -15,7 +15,9 @@ jobs:
         slib: ['1']
     steps:
       - uses: actions/checkout@v2
-      -  run: python llvm.py
+      - run: python llvm.py
+        env:
+          LLVM_VERSION: ${{ matrix.llvm }}
       - if: ${{ matrix.os == 'windows-latest' }}
         run: ./windows.bat
         env:
