@@ -9,8 +9,8 @@ jobs:
       matrix:
         os: ['windows-latest']
         llvm: ['13']
-        cmake: ['1']    
-        cuda: ['0', '1']
+        cmake: ['0']    
+        cuda: ['0']
         static: ['1']
         slib: ['1']
     steps:
