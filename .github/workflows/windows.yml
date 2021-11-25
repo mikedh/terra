@@ -14,12 +14,8 @@ jobs:
         static: ['1']
         slib: ['1']
     steps:
-      - name: Install LLVM and Clang
-        uses: KyleMayes/install-llvm-action@v1.5.0
-        with:
-          version: ${{ matrix.llvm }}
-          directory: ${{ runner.temp }}/llvm
       - uses: actions/checkout@v2
+      -  run: python llvm.py
       - if: ${{ matrix.os == 'windows-latest' }}
         run: ./windows.bat
         env:
