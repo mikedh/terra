@@ -3,8 +3,6 @@
 set LLVM_DIR=%LLVM_PATH%
 :: set CLANG_RESOURCE_DIRECTORY=%LLVM_DIR%\lib\clang\13.0.0
 
-curl -L -o %LLVM_DIR%/FindLLVM.cmake https://raw.githubusercontent.com/ldc-developers/ldc/master/cmake/Modules/FindLLVM.cmake
-
 dir %LLVM_DIR%
 :: dir %CLANG_RESOURCE_DIRECTORY
 
