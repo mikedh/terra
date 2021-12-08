@@ -213,13 +213,7 @@ if [[ $USE_CMAKE -eq 1 ]]; then
       popd
   fi
 
-  # Only deploy CMake builds, and only with LLVM 9.
-  if [[ (( $LLVM_CONFIG = llvm-config-9 || $LLVM_CONFIG = llvm-config-13 )) && $SLIB_INCLUDE_LLVM -eq 1 && ( $USE_CUDA -eq 1 || $(uname) == Darwin ) && $TERRA_LUA = luajit ]]; then
     RELEASE_NAME=terra-`uname | sed -e s/Darwin/OSX/`-`uname -m`-`git rev-parse --short HEAD`
     mv install $RELEASE_NAME
     zip -q -r $RELEASE_NAME.zip $RELEASE_NAME
     mv $RELEASE_NAME install
-  fi
-else
-  make LLVM_CONFIG=$(which $LLVM_CONFIG) CLANG=$(which $CLANG) test -j${THREADS:-2}
-fi
