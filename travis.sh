@@ -217,3 +217,4 @@ if [[ $USE_CMAKE -eq 1 ]]; then
     mv install $RELEASE_NAME
     zip -q -r $RELEASE_NAME.zip $RELEASE_NAME
     mv $RELEASE_NAME install
+fi
