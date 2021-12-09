@@ -152,6 +152,7 @@ jobs:
       - run: ./travis.sh
         env:
           LLVM_CONFIG: llvm-config-${{ matrix.llvm }}
+          LLVM_VERSION: ${{ matrix.llvm }}
           CLANG: clang-${{ matrix.llvm }}
           USE_CMAKE: ${{ matrix.cmake }}
           USE_CUDA: ${{ matrix.cuda }}

@@ -213,7 +213,7 @@ if [[ $USE_CMAKE -eq 1 ]]; then
       popd
   fi
 
-    RELEASE_NAME=terra-`uname | sed -e s/Darwin/OSX/`-`uname -m`-`git rev-parse --short HEAD`
+    RELEASE_NAME=terra-`uname | sed -e s/Darwin/OSX/`-`uname -m`-llvm-$LLVM_VERSION
     mv install $RELEASE_NAME
     zip -q -r $RELEASE_NAME.zip $RELEASE_NAME
     mv $RELEASE_NAME install
