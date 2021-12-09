@@ -164,4 +164,11 @@ jobs:
         with:
           name: terra-${{ matrix.os }}-llvm-${{ matrix.llvm }}
           path: |
-            *.zip
+            *.zip 
+      - name: Publish Release
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          artifacts: "*.zip"
+          tag: "attempt"
+          token: ${{ secrets.GITHUB_TOKEN }}
